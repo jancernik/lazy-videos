@@ -1,0 +1,90 @@
+.lazy-container {
+  z-index: z("base");
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0 0 56.25% 0;
+  overflow: hidden;
+  background-color: #000000;
+  margin-bottom: 12px;
+
+  .video-thumbnail {
+    cursor: pointer;
+
+    &:hover {
+      .logo {
+        opacity: 1;
+        filter: grayscale(0);
+
+      }
+    }
+  }
+}
+
+.lazy-container .title-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  z-index: 935;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 0, 0, 0));
+
+  .title-wrapper {
+    overflow: hidden;
+    padding-inline: 20px;
+
+    .title-link {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.lazy-container iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: .25s cubic-bezier(0, 0, 0.2, 1);
+  opacity: 0.8;
+  filter: grayscale(1);
+
+  // Default play button
+  background: svg-uri("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#181818' d='M512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z'/></svg>");
+  width: 50px;
+  height: 50px;
+
+  &.youtube-logo {
+    width: 68px;
+    height: 48px;
+    background: svg-uri("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'><path class='ytp-large-play-button-bg' d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z' fill='#f00'></path><path d='M 45,24 27,14 27,34' fill='#fff'></path></svg>");
+  }
+
+  &.vimeo-logo {
+    width: 40px;
+    height: 40px;
+    background: svg-uri("<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none' class='play' style='display: block;'><path d='M31.6665 19.9998C31.6665 20.5926 31.3517 21.1408 30.8396 21.4395L10.8396 33.1061C10.3241 33.4068 9.68722 33.409 9.16973 33.1117C8.65224 32.8145 8.33317 32.2633 8.33317 31.6665V8.33317C8.33317 7.7364 8.65224 7.18516 9.16973 6.88793C9.68722 6.5907 10.3241 6.59284 10.8396 6.89354L30.8396 18.5602C31.3517 18.8589 31.6665 19.4071 31.6665 19.9998Z' fill='white'></path></svg>");
+  }
+}
