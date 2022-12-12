@@ -9,7 +9,14 @@ function initLazyLoad(api) {
         return;
       } else {
         for (let container of lazyContainers) {
-          lazyLoadSetUp(container);
+          lazyLoadSetUp(container, {
+            preventCloak() {
+              const postId = elem.closest("article").dataset.postId;
+              if (postId) {
+                api.preventCloak(parseInt(postId, 10));
+              }
+            },
+          });
         }
       }
     },

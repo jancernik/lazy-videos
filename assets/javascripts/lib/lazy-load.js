@@ -1,7 +1,7 @@
 import escape from "discourse-common/lib/escape";
 import buildIFrame from "./iframe-builder";
 
-export default function lazyLoadSetUp(elem) {
+export default function lazyLoadSetUp(elem, options) {
   const id = escape(elem.dataset.videoId),
     title = escape(elem.dataset.videoTitle),
     provider = elem.dataset.providerName,
@@ -46,6 +46,10 @@ export default function lazyLoadSetUp(elem) {
     e.preventDefault();
     const iframe = buildIFrame(provider, id, params);
     thumbnail.replaceWith(iframe);
+    elem.removeChild(titleContainer);
+    if (options.preventCloak) {
+      options.preventCloak();
+    }
   }
 
   thumbnail.addEventListener("click", loadEmbed);
