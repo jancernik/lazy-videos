@@ -11,11 +11,11 @@
   .video-thumbnail {
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &:focus {
       .logo {
         opacity: 1;
         filter: grayscale(0);
-
       }
     }
   }
