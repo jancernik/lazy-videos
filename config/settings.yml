@@ -1,0 +1,5 @@
+plugins:
+  lazy_videos_enabled:
+    default: true
+    client: false
+    hidden: true

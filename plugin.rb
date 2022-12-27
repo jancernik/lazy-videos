@@ -7,6 +7,7 @@
 # url:
 
 hide_plugin if self.respond_to?(:hide_plugin)
+enabled_site_setting :lazy_videos_enabled
 
 register_asset "stylesheets/lazy-videos.scss"
 register_asset "stylesheets/lazy-videos_mobile.scss", :mobile
