@@ -3,6 +3,10 @@ export default function buildIFrame(provider, id, params) {
   iframe.setAttribute("allowFullScreen", "");
   iframe.setAttribute("frameborder", "0");
   iframe.setAttribute("seamless", "seamless");
+  iframe.setAttribute(
+    "allow",
+    "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  );
 
   switch (provider) {
     case "youtube":
@@ -12,7 +16,10 @@ export default function buildIFrame(provider, id, params) {
       );
       break;
     case "vimeo":
-      iframe.setAttribute("src", `https://player.vimeo.com/video/${id}`);
+      iframe.setAttribute(
+        "src",
+        `https://player.vimeo.com/video/${id}?autoplay=1`
+      );
       break;
     default:
       break;
